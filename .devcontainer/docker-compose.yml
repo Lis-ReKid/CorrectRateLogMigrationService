@@ -16,6 +16,8 @@ services:
       context: .
       dockerfile: JavaDockerfile
     command: sleep infinity 
+    volumes:
+      - ../workspace:/workspace
 
 volumes:
   db-bk:
