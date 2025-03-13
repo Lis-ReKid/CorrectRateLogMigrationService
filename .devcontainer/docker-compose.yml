@@ -9,7 +9,7 @@ services:
       MYSQL_PASSWORD: 
     command: ["mysqld", "--character-set-server=utf8mb4"]
     volumes:
-      - db-bk:/bk
+      - db-bk:/var/lib/mysql
 
   java:
     build: 
