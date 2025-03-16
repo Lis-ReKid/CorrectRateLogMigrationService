@@ -4,8 +4,8 @@ services:
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: 
-      MYSQL_DATABASE: correctrate_log_db
-      MySQL_USER: ratelogger
+      MYSQL_DATABASE: 
+      MySQL_USER: 
       MYSQL_PASSWORD: 
     command: ["mysqld", "--character-set-server=utf8mb4"]
     volumes:
