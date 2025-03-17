@@ -9,7 +9,7 @@ services:
       MYSQL_PASSWORD: 
     command: ["mysqld", "--character-set-server=utf8mb4"]
     volumes:
-      - db-bk:/var/lib/mysql
+      - db-sample:/var/lib/mysql
 
   java:
     build: 
@@ -20,4 +20,4 @@ services:
       - ../workspace:/workspace
 
 volumes:
-  db-bk:
+  db-sample:
