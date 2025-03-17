@@ -6,8 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class CorrectratelogmigrationserviceApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(CorrectratelogmigrationserviceApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(CorrectratelogmigrationserviceApplication.class, args);
+    }
 
 }

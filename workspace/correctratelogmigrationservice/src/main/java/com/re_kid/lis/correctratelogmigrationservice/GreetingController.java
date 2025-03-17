@@ -9,10 +9,16 @@ import com.re_kid.lis.correctratelogmigrationservice.obj.Greeting;
 
 @Controller
 public class GreetingController {
+    GreetingService greetingService;
+
+    public GreetingController(GreetingService greetingService) {
+        this.greetingService = greetingService;
+    }
+
     @GetMapping("/greet")
     @ResponseBody
     public Greeting greet() {
-        var greeting = new Greeting("en", "Hello World.");
+        var greeting = greetingService.getGreeting();
         return greeting;
     }
     
