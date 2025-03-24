@@ -1,43 +1,46 @@
 package com.re_kid.lis.correctratelogmigrationservice.obj;
 
 public class History {
-    private final int id;
-    private final int category;
-    private final String learnedDate;
-    private final String learnedTime;
-    private final int correctNum;
-    private final int entireNum;
-    private final double correctRate;
-    public History(int id, int category, String learnedDate, String learnedTime, int correctNum, int entireNum,
+    private int _id;
+    private int category_id;
+    private String learned_date;
+    private String learned_time;
+    private int correct_number;
+    private int entire_number;
+    private double correct_rate;
+    public History() {
+
+    }
+    public History(int _id, int category, String learnedDate, String learnedTime, int correctNum, int entireNum,
             double correctRate) {
-        this.id = id;
-        this.category = category;
-        this.learnedDate = learnedDate;
-        this.learnedTime = learnedTime;
-        this.correctNum = correctNum;
-        this.entireNum = entireNum;
-        this.correctRate = correctRate;
+        this._id = _id;
+        this.category_id = category;
+        this.learned_date = learnedDate;
+        this.learned_time = learnedTime;
+        this.correct_number = correctNum;
+        this.entire_number = entireNum;
+        this.correct_rate = correctRate;
     }
-    public int getId() {
-        return id;
+    public int get_id() {
+        return _id;
     }
-    public int getCategory() {
-        return category;
+    public int getCategory_id() {
+        return category_id;
     }
-    public String getLearnedDate() {
-        return learnedDate;
+    public String getLearned_date() {
+        return learned_date;
     }
-    public String getLearnedTime() {
-        return learnedTime;
+    public String getLearned_time() {
+        return learned_time;
     }
-    public int getCorrectNum() {
-        return correctNum;
+    public int getCorrect_number() {
+        return correct_number;
     }
-    public int getEntireNum() {
-        return entireNum;
+    public int getEntire_number() {
+        return entire_number;
     }
-    public double getCorrectRate() {
-        return correctRate;
+    public double getCorrect_rate() {
+        return correct_rate;
     }
     
 }

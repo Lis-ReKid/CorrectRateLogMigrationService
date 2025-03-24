@@ -2,12 +2,13 @@ package com.re_kid.lis.correctratelogmigrationservice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @SpringBootApplication
+@EnableTransactionManagement
 public class CorrectratelogmigrationserviceApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(CorrectratelogmigrationserviceApplication.class, args);
     }
-
 }

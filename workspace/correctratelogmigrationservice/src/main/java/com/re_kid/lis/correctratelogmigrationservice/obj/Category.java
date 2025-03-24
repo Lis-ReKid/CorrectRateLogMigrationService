@@ -1,14 +1,15 @@
 package com.re_kid.lis.correctratelogmigrationservice.obj;
 
 public class Category {
-    private final int _id;
-    private final String categoryName;
-    public Category(int _id, String categoryName) {
-        this._id = _id;
+    private int id;
+    private String categoryName;
+    public Category() {}
+    public Category(int id, String categoryName) {
+        this.id = id;
         this.categoryName = categoryName;
     }
     public int getId() {
-        return _id;
+        return id;
     }
     public String getCategoryName() {
         return categoryName;
