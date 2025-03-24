@@ -23,7 +23,7 @@ public class MigrationData {
         return categories;
     }
 
-    public List<History> getHistoryList() {
+    public List<History> toHistoryList() {
         List<History> historyList = new ArrayList<>();
         ObjectMapper mapper = new ObjectMapper();
         for (String historyString : this.histories) {
@@ -38,7 +38,7 @@ public class MigrationData {
         return historyList;
     }
 
-    public List<Category> getCategoryList() {
+    public List<Category> toCategoryList() {
         List<Category> categoryList = new ArrayList<>();
         ObjectMapper mapper = new ObjectMapper();
         for (String categoryString : this.categories) {

@@ -3,6 +3,8 @@ package com.re_kid.lis.correctratelogmigrationservice.repository;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
+import org.springframework.jdbc.core.DataClassRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -38,7 +40,7 @@ public class MigrationRepositoryimpl implements MigrationRepository{
     public void createCategoryTable(String id, List<Category> categoryList) {
         String categoryTableName = id + "_categories";
         String sqlCreate = "CREATE TABLE " + categoryTableName + "(" +
-            "_id INTEGER(8) PRIMARY KEY" +
+            "id INTEGER(8) PRIMARY KEY" +
             ", category_name VARCHAR(64) NOT NULL);";
         jdbcTemplate.execute(sqlCreate);
         for (Category category : categoryList) {
@@ -56,8 +58,8 @@ public class MigrationRepositoryimpl implements MigrationRepository{
         String sqlCreate = "CREATE TABLE " + historyTableName + "(" +
             "_id INTEGER PRIMARY KEY" +
             ", category_id INTEGER NOT NULL" +
-            ", learned_date DATE NOT NULL" +
-            ", learned_time TIME NOT NULL" +
+            ", learned_date VARCHAR(10) NOT NULL" +
+            ", learned_time VARCHAR(5) NOT NULL" +
             ", correct_number INTEGER NOT NULL" +
             ", entire_number INTEGER NOT NULL" +
             ", correct_rate DOUBLE NOT NULL);";
@@ -72,5 +74,21 @@ public class MigrationRepositoryimpl implements MigrationRepository{
                     history.getEntire_number(),
                     history.getCorrect_rate());
             }
+    }
+
+    @Override
+    public List<Category> selectAllCategories(String id) {
+        List<Category> categoryList = jdbcTemplate.query(
+            "SELECT * FROM " + id + "_categories;",
+            new BeanPropertyRowMapper<>(Category.class));
+            return categoryList;
+    }
+
+    @Override
+    public List<History> selectAllHistories(String id) {
+        List<History> categoryList = jdbcTemplate.query(
+            "SELECT * FROM " + id + "_histories;",
+            new BeanPropertyRowMapper<>(History.class));
+            return categoryList;
     }
 }

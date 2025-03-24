@@ -6,8 +6,14 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.re_kid.lis.correctratelogmigrationservice.obj.MigrationData;
 import com.re_kid.lis.correctratelogmigrationservice.service.MigrationService;
+
+import java.util.NoSuchElementException;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.ResponseStatus;
 
 
 
@@ -25,8 +31,11 @@ public class MigrationController {
     }
 
     @GetMapping("/migrate/{id}")
-    public MigrationData migrate(@RequestParam String param) {
-        
+    public MigrationData migrate(@PathVariable String id) {
+        return migrationService.migrate(id);
     }
     
+    @ExceptionHandler(NoSuchElementException.class)
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    public void handleNotFound() {}
 }
