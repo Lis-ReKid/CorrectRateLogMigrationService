@@ -25,12 +25,12 @@ public class MigrationController {
         this.migrationService = migrationService;
     }
 
-    @PostMapping("/issue")
+    @PostMapping("/correctratelog/issue")
     public String issueMigrationId(@RequestBody MigrationData data) {
         return migrationService.issueId(data);
     }
 
-    @GetMapping("/migrate/{id}")
+    @GetMapping("/correctratelog/migrate/{id}")
     public MigrationData migrate(@PathVariable String id) {
         return migrationService.migrate(id);
     }
