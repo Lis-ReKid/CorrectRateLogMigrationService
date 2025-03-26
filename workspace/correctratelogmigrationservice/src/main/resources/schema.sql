@@ -1,0 +1,4 @@
+CREATE TABLE IF NOT EXISTS tables(
+    id VARCHAR(8) PRIMARY KEY,
+    uplode_datetime DATETIME NOT NULL
+);
