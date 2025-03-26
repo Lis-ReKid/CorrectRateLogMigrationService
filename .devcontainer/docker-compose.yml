@@ -9,10 +9,10 @@ services:
     image: mysql:8.0-debian
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: correct
-      MYSQL_DATABASE: correctratelog_db
-      MYSQL_USER: ratelogger
-      MYSQL_PASSWORD: correct
+      MYSQL_ROOT_PASSWORD: 
+      MYSQL_DATABASE: 
+      MYSQL_USER: 
+      MYSQL_PASSWORD: 
     command: ["mysqld", "--character-set-server=utf8mb4"]
     volumes:
       - db-bk:/var/lib/mysql
