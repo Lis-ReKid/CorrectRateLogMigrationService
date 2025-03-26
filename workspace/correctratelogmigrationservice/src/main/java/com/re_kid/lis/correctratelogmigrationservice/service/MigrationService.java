@@ -27,8 +27,8 @@ public class MigrationService {
             id = generateId();
         } while(migrationRepository.isExist(id));
         migrationRepository.insertId(id);
-        migrationRepository.createCategoryTable(id, data.toCategoryList());
-        migrationRepository.createHistoryTable(id, data.toHistoryList());
+        migrationRepository.createCategoryTable(id, data.asCategoryList());
+        migrationRepository.createHistoryTable(id, data.asHistoryList());
         return id;
     }
 
