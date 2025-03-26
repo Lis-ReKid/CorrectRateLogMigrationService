@@ -1,15 +1,21 @@
 services:
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 49152:8080
+
   db:
     image: mysql:8.0-debian
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: 
-      MYSQL_DATABASE: 
-      MYSQL_USER: 
-      MYSQL_PASSWORD: 
+      MYSQL_ROOT_PASSWORD: correct
+      MYSQL_DATABASE: correctratelog_db
+      MYSQL_USER: ratelogger
+      MYSQL_PASSWORD: correct
     command: ["mysqld", "--character-set-server=utf8mb4"]
     volumes:
-      - db-sample:/var/lib/mysql
+      - db-bk:/var/lib/mysql
 
   java:
     build: 
@@ -22,4 +28,4 @@ services:
       - 8080:8080
 
 volumes:
-  db-sample:
+  db-bk:
