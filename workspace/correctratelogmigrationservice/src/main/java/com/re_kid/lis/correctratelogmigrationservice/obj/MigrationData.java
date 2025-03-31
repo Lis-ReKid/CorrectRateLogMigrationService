@@ -3,9 +3,11 @@ package com.re_kid.lis.correctratelogmigrationservice.obj;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class MigrationData {
     final List<String> histories;
     final List<String> categories;
