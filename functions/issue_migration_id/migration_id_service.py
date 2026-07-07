@@ -1,15 +1,27 @@
 import logging
 import random
+import migration_data_repository
+
 
 logger = logging.getLogger(__name__)
 
 
-def execute():
+def execute(event):
     logger.info('Start issue migration id.')
+
+    # リクエストボディを取得する。
+    body = event["body"]
+
+    # 移行IDを取得。
+    migration_id = get_migration_id()
+
+    # ボディをJSONとしてS3に格納。
+    migration_data_repository.save_migration_data(migration_id, body)
+    logger.info('Stored migration data.')
 
     # 移行IDを返却
     logger.info('migration ID issued.')
-    return get_migration_id()
+    return migration_id
 
 
 def get_migration_id():
